@@ -3,11 +3,12 @@ import "./styles.css";
 
 const Card = (props) => {
   const handleOnDragStart = (e) => {
-    console.log("starting drag")
+    e.dataTransfer.setData("id", props.id);
   }
   return (
     <div className="card" draggable onDragStart={handleOnDragStart}>
-      {props.children}
+      <h4 className="text-center">{props.title}</h4>
+      <p className="text-center">{props.description}</p>
     </div>
   );
 }
